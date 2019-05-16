@@ -2,10 +2,11 @@
 
 This is a simple workflow to generate Magpie features for materials when a set of POSCAR files are provided. 
 ### Steps:
-1. Enter the workdir (i.e., 'cd magpie_workflow')
-2. Create a directory with name 'input_poscars' (i.e., 'mkdir input_poscars') and add all the POSCAR files to it. This directory SHOULD contain only the POSCAR files in it. (Only other file that is optionally permitted to be in this directory is 'properties.txt'. But it will be deleted at the beginning of workflow and a new 'properties.txt' is created. So it is not required to manually create a 'properties.txt' file. Any other files will be raise error when it is considered as an POSCAR file by Magpie.)
-3. Run the workflow.py script in python3 (haven't tested in python2)
-4. All the newly generated files are inside "./OUTDIR/"
+1. Clone this repository or download as a zip file and unzip it.
+2. Enter the workdir (i.e., 'cd magpie_workflow')
+3. Create a directory with name 'input_poscars' (i.e., 'mkdir input_poscars') and add all the POSCAR files to it. This directory SHOULD contain only the POSCAR files in it. (Only other file that is optionally permitted to be in this directory is 'properties.txt'. But it will be deleted at the beginning of workflow and a new 'properties.txt' is created. So it is not required to manually create a 'properties.txt' file. Any other files will be raise error when it is considered as an POSCAR file by Magpie.)
+4. Run the workflow.py script in python3 (haven't tested in python2)
+5. All the newly generated files are inside "./OUTDIR/"
 
 ### Output files
 #### properties.txt
@@ -23,4 +24,4 @@ It is created inside the 'input_poscars' directory. This is a necessary file for
 2. workflow.py is a simple script using basic python functions and in-built python3 libraries. Always welcome to have a look and/or make edits. 
 3. Internal configurations and default values can be edited inside the workflow.py - if necessary. But no edits are needed at all by default - if Steps 1-4 above are followed.
 4. Adding a configuration file could've made this system flexible, but I just wanted to keep it simple to use, at least for now. 
-5. Any pull requests with relevant modifications are highly appreciated.
+5. Any pull requests with relevant modifications are highly appreciated. If someone wanna make this README file less messy, you're always welcome to do that.
