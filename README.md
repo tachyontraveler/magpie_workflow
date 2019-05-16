@@ -8,7 +8,8 @@ This is a simple workflow to generate Magpie features for materials when a set o
 4. Run the workflow.py script in python3 (haven't tested in python2)
 5. All the newly generated files are inside "./OUTDIR/"
 
-NB: For testing purposes, a random set of POSCAR files are hosted here at : https://drive.google.com/open?id=1K2aoFptylrPOzJEFbNBoF3pPHPAjdAeH , if anyone is interested to just check the workflow's functionality very quick.
+NB: For testing purposes, a random set of POSCAR files are hosted here at : 
+https://drive.google.com/open?id=1K2aoFptylrPOzJEFbNBoF3pPHPAjdAeH (can be accessed while signed in with a northwestern.edu Google account), if anyone is interested to just check the workflow's functionality very quick.
 
 ### Output files
 #### properties.txt
