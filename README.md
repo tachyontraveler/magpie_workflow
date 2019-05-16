@@ -28,3 +28,9 @@ It is created inside the 'input_poscars' directory. This is a necessary file for
 3. Internal configurations and default values can be edited inside the workflow.py - if necessary. But no edits are needed at all by default - if Steps 1-4 above are followed.
 4. Adding a configuration file could've made this system flexible, but I just wanted to keep it simple to use, at least for now. 
 5. Any pull requests with relevant modifications are highly appreciated. If someone wanna make this README file less messy, you're always welcome to do that.
+
+### References:
+Magpie is hosted at https://bitbucket.org/wolverton/magpie/issues
+
+Citations should be referenced to : 
+Ward, Logan, et al. "A general-purpose machine learning framework for predicting properties of inorganic materials." npj Computational Materials 2 (2016): 16028.
