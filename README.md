@@ -3,11 +3,15 @@
 This is a simple workflow to generate Magpie features for materials when a set of POSCAR files are provided. 
 ### Steps:
 1. Enter the workdir (i.e., 'cd magpie_workflow')
-2. Create a directory with name 'input_poscars' (i.e., 'mkdir input_poscars') and add all the POSCAR files to it. This directory SHOULD contain only the POSCAR files in it.
+2. Create a directory with name 'input_poscars' (i.e., 'mkdir input_poscars') and add all the POSCAR files to it. This directory SHOULD contain only the POSCAR files in it. (Only other file that is optionally permitted to be in this directory is 'properties.txt'. But it will be deleted at the beginning of workflow and a new 'properties.txt' is created. So it is not required to manually create a 'properties.txt' file. Any other files will be raise error when it is considered as an POSCAR file by Magpie.)
 3. Run the workflow.py script in python3 (haven't tested in python2)
-4. All the newly generated files are inside "./OUTDIR"
+4. All the newly generated files are inside "./OUTDIR/"
 
-### OUTDIR files
+### Output files
+#### properties.txt
+It is created inside the 'input_poscars' directory. This is a necessary file for Magpie to run successfully. it contains only the POSCAR filenames (in the attribute 'filename') and a 'local_reference' attribute name which is just the index of that material in the list. The latter attribute, even thoguh seemingly trivial, is necessary to do a cross-reference with the geenrated Magpie features in './OUTDIR/features_generated_magpie.csv'
+
+#### OUTDIR files
 1. features_processed_final.csv : Final output file with POSCAR filename and corresponding features (elemental and voronoi)
 2. features_generated_magpie.csv : Raw output file from Magpie. The final attribute ('local_reference') is to cross reference between the Magpie output data and properties.txt generated inside the 'input_poscars' directory. It is necessary because the Magpie removes any materials (i.e., poscars) whose features cannot be generated. Also, the Magpie output file doesn't explicitely contain any data-point identifiers.
 3. out.workflow.txt : Output messages from Magpie
