@@ -8,6 +8,8 @@ This is a simple workflow to generate Magpie features for materials when a set o
 4. Run the workflow.py script in python3 (haven't tested in python2)
 5. All the newly generated files are inside "./OUTDIR/"
 
+NB: For testing purposes, a random set of POSCAR files are hosted here at : https://drive.google.com/open?id=1K2aoFptylrPOzJEFbNBoF3pPHPAjdAeH , if anyone is interested to just check the workflow's functionality very quick.
+
 ### Output files
 #### properties.txt
 It is created inside the 'input_poscars' directory. This is a necessary file for Magpie to run successfully. it contains only the POSCAR filenames (in the attribute 'filename') and a 'local_reference' attribute name which is just the index of that material in the list. The latter attribute, even thoguh seemingly trivial, is necessary to do a cross-reference with the geenrated Magpie features in './OUTDIR/features_generated_magpie.csv'
