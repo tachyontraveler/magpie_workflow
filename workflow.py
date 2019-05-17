@@ -3,6 +3,7 @@ import sys
 import glob 
 import os 
 import shutil
+from datetime import datetime
      
 class magpie_workflow:
     def __init__(self):
@@ -12,19 +13,24 @@ class magpie_workflow:
         self.prop_dir    = './Magpie/lookup-data/'
         self.magpie_exec = ['java', '-jar', './Magpie/Magpie.jar']
 
-    def OWrite(self,s): 
-        with open(os.path.join(self.outdir,'out.workflow.txt'),'a') as fout: 
-            fout.write(s) 
-        print(s) 
-        sys.stdout.flush()     
+    def OWrite(self,s,pr=True,wr=True):
+        s = '\n'+str(datetime.now())+' ::  '+s
+        if pr:  
+            print(s)
+            sys.stdout.flush()
+        if wr:
+            with open(os.path.join(self.outdir,'out.workflow.txt'),'a') as fout:  
+                fout.write(s)
+
      
     def run_magpie(self): 
         self.runfile_ext = [self.mag_ip_file+'.in','|', 'tee', self.mag_ip_file+'.out'] 
-     
+
+        self.OWrite('May check out.workflow.txt for Magpie messages')
+
         with open(os.path.join(self.outdir,'out.workflow.txt'),'a') as fout: 
             with open(os.path.join(self.outdir,'err.worksflow.txt'),'a') as ferr: 
                 out=subprocess.call(self.magpie_exec+self.runfile_ext, stdout=fout, stderr=ferr) 
-        sys.stdout.flush() 
      
      
     def input_gen(self): 
@@ -41,6 +47,7 @@ class magpie_workflow:
         self.mag_ip_file = os.path.join(self.outdir,'generate-attributes')
         with open(self.mag_ip_file+'.in','w') as fout: 
             fout.write('\n'.join(magpie_comms)) 
+        self.OWrite('Magpie input file created as '+self.mag_ip_file+'.in')
      
     def reference_gen(self):
         if os.path.isfile(self.poscars_dir+'properties.txt'):
@@ -53,6 +60,7 @@ class magpie_workflow:
         title      = [' '.join(['filename','local_reference'])]
         with open(os.path.join(self.poscars_dir+'properties.txt'),'w') as fout:
             fout.write('\n'.join(title+files_list))
+
 
     def post_process(self):
         if not os.path.isfile(self.mag_feats_file):
@@ -76,17 +84,25 @@ class magpie_workflow:
      
      
 def main():
-    print('Beginning the workflow')
+    print ('Initializing the workflow class')
     workflow = magpie_workflow()
 
     if os.path.isdir('./OUTDIR'):
         shutil.rmtree('./OUTDIR')
     os.mkdir('./OUTDIR')
 
+    workflow.OWrite('Generating of property.txt file')
     workflow.reference_gen()
+
+    workflow.OWrite('Generating Magpie input commands file ')
     workflow.input_gen()
+
+    workflow.OWrite('Calling Magpie with the input script.. ')
     workflow.run_magpie()
+
+    workflow.OWrite('Finished Magpie generation. Now post-processing')
     workflow.post_process()
-    print('Done')
+
+    workflow.OWrite('Done')
 
 main()     
