@@ -91,7 +91,7 @@ def main():
         shutil.rmtree('./OUTDIR')
     os.mkdir('./OUTDIR')
 
-    workflow.OWrite('Generating of property.txt file')
+    workflow.OWrite('Generating property.txt file')
     workflow.reference_gen()
 
     workflow.OWrite('Generating Magpie input commands file ')
