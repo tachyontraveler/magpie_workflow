@@ -30,7 +30,7 @@ It is created inside the 'input_poscars' directory. This is a necessary file for
 5. Any pull requests with relevant modifications are highly appreciated. If someone wanna make this README file less messy, you're always welcome to do that.
 
 ### References:
-Magpie is hosted at https://bitbucket.org/wolverton/magpie/issues
+Magpie is hosted at https://bitbucket.org/wolverton/magpie/src/master/
 
 Citations should be referenced to : 
 Ward, Logan, et al. "A general-purpose machine learning framework for predicting properties of inorganic materials." npj Computational Materials 2 (2016): 16028.
